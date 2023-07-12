@@ -1,5 +1,5 @@
 # PicoWBLEMidiTest
-Basic BLE Midi test for Pico W 
+Basic BLE Midi test for Pico W in Micropython
 
 Requires two Pico Ws - one peripheral, one central. 
 
