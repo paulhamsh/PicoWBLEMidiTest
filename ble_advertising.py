@@ -19,6 +19,8 @@ _ADV_TYPE_UUID32_MORE = const(0x4)
 _ADV_TYPE_UUID128_MORE = const(0x6)
 _ADV_TYPE_APPEARANCE = const(0x19)
 
+_ADV_TYPE_MANUFACTURER = const(0xff)
+
 
 # Generate a payload to be passed to gap_advertise(adv_data=...).
 def advertising_payload(limited_disc=False, br_edr=False, name=None, services=None, appearance=0):
@@ -67,6 +69,9 @@ def decode_name(payload):
     n = decode_field(payload, _ADV_TYPE_NAME)
     return str(n[0], "utf-8") if n else ""
 
+def decode_manuf(payload):
+    n = decode_field(payload, _ADV_TYPE_MANUFACTURER)
+    return n
 
 def decode_services(payload):
     services = []

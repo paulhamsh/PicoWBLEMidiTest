@@ -1,6 +1,6 @@
 import bluetooth
 import time
-from ble_advertising import decode_services, decode_name
+from ble_advertising import decode_services, decode_name, decode_manuf
 from micropython import const
 
 _IRQ_CENTRAL_CONNECT = const(1)
@@ -27,9 +27,12 @@ _ADV_IND = const(0x00)
 _ADV_DIRECT_IND = const(0x01)
 _ADV_SCAN_IND = const(0x02)
 _ADV_NONCONN_IND = const(0x03)
+_ADV_SCAN_RSP = const(0x04)
 
 MIDI_SERVICE_UUID = bluetooth.UUID("03B80E5A-EDE8-4B33-A751-6CE34EC4C700")
 MIDI_CHAR_UUID =    bluetooth.UUID("7772E5DB-3868-4112-A1A9-F2669D106BF3")
+
+SINCO = b'\x73\x69\x6e\x63\x6f'
 
 class BLEMidiCentral:
     def __init__(self, ble):
@@ -37,6 +40,7 @@ class BLEMidiCentral:
         self._ble.active(True)
         self._ble.irq(self._irq)
         self._reset()
+
 
     def _reset(self):
         # Cached name and address from a successful scan.
@@ -70,14 +74,21 @@ class BLEMidiCentral:
         if event == _IRQ_SCAN_RESULT:
             addr_type, addr, adv_type, rssi, adv_data = data
             
-            print(event, addr_type, bytes(addr).hex(), adv_type, rssi, bytes(adv_data).hex())
-            if adv_type in (_ADV_IND, _ADV_DIRECT_IND):
+            print(addr_type, bytes(addr).hex(), adv_type, rssi, bytes(adv_data).hex(), end=" : ")
+            if adv_type  in (_ADV_IND, _ADV_DIRECT_IND):
                 type_list = decode_services(adv_data)
-                if MIDI_SERVICE_UUID in type_list:
+                manuf = decode_manuf(adv_data)
+                if manuf:
+                    print(manuf[0].hex())
+                else:
+                    print()
+                if MIDI_SERVICE_UUID in type_list or (manuf and manuf[0] == SINCO):
                     self._addr_type = addr_type
                     self._addr = bytes(addr)  # Note: addr buffer is owned by caller so need to copy it.
                     self._name = decode_name(adv_data) or "?"
                     self._ble.gap_scan(None)  # Stop scan
+            else:
+                print()
 
         elif event == _IRQ_SCAN_DONE:
             # Scan is finished
@@ -140,6 +151,7 @@ class BLEMidiCentral:
             print("Descriptor", conn_handle, dsc_handle, uuid)
             if uuid == bluetooth.UUID(0x2902):
                 self._notify_dsc_handle = dsc_handle
+                print("Notify handle ", dsc_handle)
  
         elif event == _IRQ_GATTC_DESCRIPTOR_DONE:
             # Called once service discovery is complete.
@@ -147,7 +159,8 @@ class BLEMidiCentral:
             conn_handle, status = data
             
             if self._notify_dsc_handle:
-                self._ble.gattc_write(self._conn_handle, self._notify_dsc_handle, b'\x01\x00' )
+                self._ble.gattc_write(self._conn_handle, self._notify_dsc_handle, b'\x01\x00', 1)
+                print("Registered for notify on handle", self._notify_dsc_handle)
             else:
                 print("Failed to find descriptor")
                 
@@ -190,7 +203,7 @@ class BLEMidiCentral:
         self._addr_type = None
         self._addr = None
         self._in_scan = True
-        self._ble.gap_scan(2000, 30000, 30000)
+        self._ble.gap_scan(2000, 30000, 30000, True)
 
     # Connect to the specified device (otherwise use cached address from a scan).
     def connect(self, addr_type=None, addr=None):
