@@ -1,6 +1,6 @@
 import bluetooth
 import time
-from ble_advertising import decode_services, decode_name, decode_manuf
+from ble_advertising import decode_services, decode_name, decode_manuf, dump_all
 from micropython import const
 
 _IRQ_CENTRAL_CONNECT = const(1)
@@ -75,20 +75,19 @@ class BLEMidiCentral:
             addr_type, addr, adv_type, rssi, adv_data = data
             
             print(addr_type, bytes(addr).hex(), adv_type, rssi, bytes(adv_data).hex(), end=" : ")
+            dump_all(bytes(adv_data))
             if adv_type  in (_ADV_IND, _ADV_DIRECT_IND):
                 type_list = decode_services(adv_data)
                 manuf = decode_manuf(adv_data)
-                if manuf:
-                    print(manuf[0].hex())
-                else:
-                    print()
+                #if manuf:
+                #    print(manuf[0].hex())
+                #else:
+                #    print()
                 if MIDI_SERVICE_UUID in type_list or (manuf and manuf[0] == SINCO):
                     self._addr_type = addr_type
                     self._addr = bytes(addr)  # Note: addr buffer is owned by caller so need to copy it.
                     self._name = decode_name(adv_data) or "?"
                     self._ble.gap_scan(None)  # Stop scan
-            else:
-                print()
 
         elif event == _IRQ_SCAN_DONE:
             # Scan is finished
