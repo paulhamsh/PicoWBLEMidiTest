@@ -64,6 +64,18 @@ def decode_field(payload, adv_type):
         i += 1 + payload[i]
     return result
 
+def dump_all(payload):
+    i = 0
+    result = []
+    while i + 1 < len(payload):
+        adv_length = payload[i]
+        adv_type = payload[i+1]
+        adv_data = payload[i+2:i+adv_length+1]
+        
+        result.append([adv_length, adv_type, adv_data]) 
+        i += 1 + adv_length
+    print(result)
+ 
 
 def decode_name(payload):
     n = decode_field(payload, _ADV_TYPE_NAME)
@@ -83,7 +95,7 @@ def decode_services(payload):
         services.append(bluetooth.UUID(u))
     return services
 
-
+    
 def demo():
     payload = advertising_payload(
         name="micropython",
