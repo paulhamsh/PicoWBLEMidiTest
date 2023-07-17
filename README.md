@@ -146,7 +146,7 @@ ble_gatts.c:		ble_gatts_start():
 
 			ble_gatts_register_clt_cfg_dsc():
 				rc = ble_att_svr_register(uuid_ccc, BLE_ATT_F_READ | BLE_ATT_F_WRITE, 0, 
-							  att_handle, ble_gatts_clt_cfg_access, NULL);
+							  att_handle, **ble_gatts_clt_cfg_access**, NULL);
 
 
 			ble_gatts_register_dsc():
@@ -220,7 +220,7 @@ Write on CCCD from client
 >> https://github.com/espressif/esp-nimble/tree/master/nimble/host/src
 
 // Receive the CCCD access
-ble_gatts.c:		ble_gatts_clt_cfg_access():
+ble_gatts.c:		**ble_gatts_clt_cfg_access()**:
 				ble_gatts_subscribe_event(...BLE_GAP_SUBSCRIBE_REASON_WRITE...)
 
 // Create a gatt event
