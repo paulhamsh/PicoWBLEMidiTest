@@ -7,10 +7,11 @@ BLE HCI dump
         handle 0x0041, value 0x02 0x42 0x00 0x4b 0x2a 
         handle 0x0043, value 0x1a 0x44 0x00 0x33 0x2a 
         handle 0x0046, value 0x02 0x47 0x00 0x4a 0x2a 
-    
-              len                  cmd   
 
-> 02 40 20    1B    00 17 00 04    00 09    07
+  hci                     l2cap             att
+  cmd   hndl flg   len    len      chanel   cmd   entry len
+
+> 02    40 20    1B 00    17 00    04 00    09    07
 	41 00	 02 42 00 4B 2A
 	43 00	 1A 44 00 33 2A 
 	46 00	 02 47 00 4A 2A 
