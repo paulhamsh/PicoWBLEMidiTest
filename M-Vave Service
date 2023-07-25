@@ -1,6 +1,9 @@
+```
 M Vave Midi Service dumps
 -------------------------
 
+micropython
+-----------
 Service:            Start handle    1   End handle      7 UUID(0x1800)
 Service:            Start handle    8   End handle     11 UUID(0x1801)
 Service:            Start handle   12   End handle     28 UUID(0x180a)
@@ -9,6 +12,20 @@ Service:            Start handle   35   End handle     73 UUID(0x1812)
 Service:            Start handle   96   End handle    101 UUID(0xae40)
 Service:            Start handle  112   End handle    115 UUID('03b80e5a-ede8-4b33-a751-6ce34ec4c700')
 Service:            Start handle  128   End handle    133 UUID(0xae00)
+
+gatttool
+--------
+attr handle: 0x0001, end grp handle: 0x0007 uuid: 00001800-0000-1000-8000-00805f9b34fb
+attr handle: 0x0008, end grp handle: 0x000b uuid: 00001801-0000-1000-8000-00805f9b34fb
+attr handle: 0x000c, end grp handle: 0x001c uuid: 0000180a-0000-1000-8000-00805f9b34fb
+attr handle: 0x001f, end grp handle: 0x0022 uuid: 0000180f-0000-1000-8000-00805f9b34fb
+attr handle: 0x0023, end grp handle: 0x0049 uuid: 00001812-0000-1000-8000-00805f9b34fb
+attr handle: 0x0060, end grp handle: 0x0065 uuid: 0000ae40-0000-1000-8000-00805f9b34fb
+attr handle: 0x0070, end grp handle: 0x0073 uuid: 03b80e5a-ede8-4b33-a751-6ce34ec4c700
+attr handle: 0x0080, end grp handle: 0x0085 uuid: 0000ae00-0000-1000-8000-00805f9b34fb
+
+micropython
+-----------
 Characteristic:     End handle      3   Value handle    3   Properties  2 UUID(0x2a00)
 Characteristic:     End handle      5   Value handle    5   Properties  2 UUID(0x2a01)
 Characteristic:     End handle      8   Value handle    7   Properties  2 UUID(0x2a04)
@@ -39,6 +56,43 @@ Characteristic:     End handle    112   Value handle  100   Properties 10 UUID(0
 Characteristic:     End handle    128   Value handle  114   Properties 16 UUID('7772e5db-3868-4112-a1a9-f2669d106bf3')
 Characteristic:     End handle    130   Value handle  130   Properties  4 UUID(0xae01)
 Characteristic:     End handle    133   Value handle  132   Properties 10 UUID(0xae02)
+
+gatttool
+--------
+handle: 0x0002, char properties: 0x02, char value handle: 0x0003, uuid: 00002a00-0000-1000-8000-00805f9b34fb
+handle: 0x0004, char properties: 0x02, char value handle: 0x0005, uuid: 00002a01-0000-1000-8000-00805f9b34fb
+handle: 0x0006, char properties: 0x02, char value handle: 0x0007, uuid: 00002a04-0000-1000-8000-00805f9b34fb
+handle: 0x0009, char properties: 0x20, char value handle: 0x000a, uuid: 00002a05-0000-1000-8000-00805f9b34fb
+handle: 0x000d, char properties: 0x02, char value handle: 0x000e, uuid: 00002a29-0000-1000-8000-00805f9b34fb
+handle: 0x000f, char properties: 0x02, char value handle: 0x0010, uuid: 00002a24-0000-1000-8000-00805f9b34fb
+handle: 0x0011, char properties: 0x02, char value handle: 0x0012, uuid: 00002a25-0000-1000-8000-00805f9b34fb
+handle: 0x0013, char properties: 0x02, char value handle: 0x0014, uuid: 00002a27-0000-1000-8000-00805f9b34fb
+handle: 0x0015, char properties: 0x02, char value handle: 0x0016, uuid: 00002a26-0000-1000-8000-00805f9b34fb
+handle: 0x0017, char properties: 0x02, char value handle: 0x0018, uuid: 00002a28-0000-1000-8000-00805f9b34fb
+handle: 0x0019, char properties: 0x02, char value handle: 0x001a, uuid: 00002a23-0000-1000-8000-00805f9b34fb
+handle: 0x001b, char properties: 0x02, char value handle: 0x001c, uuid: 00002a2a-0000-1000-8000-00805f9b34fb
+handle: 0x0020, char properties: 0x12, char value handle: 0x0021, uuid: 00002a19-0000-1000-8000-00805f9b34fb
+handle: 0x0024, char properties: 0x06, char value handle: 0x0025, uuid: 00002a4e-0000-1000-8000-00805f9b34fb
+handle: 0x0026, char properties: 0x1a, char value handle: 0x0027, uuid: 00002a4d-0000-1000-8000-00805f9b34fb
+handle: 0x002a, char properties: 0x1a, char value handle: 0x002b, uuid: 00002a4d-0000-1000-8000-00805f9b34fb
+handle: 0x002e, char properties: 0x0e, char value handle: 0x002f, uuid: 00002a4d-0000-1000-8000-00805f9b34fb
+handle: 0x0031, char properties: 0x1a, char value handle: 0x0032, uuid: 00002a4d-0000-1000-8000-00805f9b34fb
+handle: 0x0035, char properties: 0x1a, char value handle: 0x0036, uuid: 00002a4d-0000-1000-8000-00805f9b34fb
+handle: 0x0039, char properties: 0x1a, char value handle: 0x003a, uuid: 00002a4d-0000-1000-8000-00805f9b34fb
+handle: 0x003d, char properties: 0x1a, char value handle: 0x003e, uuid: 00002a4d-0000-1000-8000-00805f9b34fb
+handle: 0x0041, char properties: 0x02, char value handle: 0x0042, uuid: 00002a4b-0000-1000-8000-00805f9b34fb
+handle: 0x0043, char properties: 0x1a, char value handle: 0x0044, uuid: 00002a33-0000-1000-8000-00805f9b34fb
+handle: 0x0046, char properties: 0x02, char value handle: 0x0047, uuid: 00002a4a-0000-1000-8000-00805f9b34fb
+handle: 0x0048, char properties: 0x04, char value handle: 0x0049, uuid: 00002a4c-0000-1000-8000-00805f9b34fb
+handle: 0x0061, char properties: 0x04, char value handle: 0x0062, uuid: 0000ae41-0000-1000-8000-00805f9b34fb
+handle: 0x0063, char properties: 0x10, char value handle: 0x0064, uuid: 0000ae42-0000-1000-8000-00805f9b34fb
+handle: 0x0071, char properties: 0x16, char value handle: 0x0072, uuid: 7772e5db-3868-4112-a1a9-f2669d106bf3
+handle: 0x0081, char properties: 0x04, char value handle: 0x0082, uuid: 0000ae01-0000-1000-8000-00805f9b34fb
+handle: 0x0083, char properties: 0x10, char value handle: 0x0084, uuid: 0000ae02-0000-1000-8000-00805f9b34fb
+
+
+
+
 Descriptor:         Handle          2 UUID(0x2803)
 Descriptor:         Handle          3 UUID(0x2a00)
 Descriptor:         Handle          4 UUID(0x2803)
@@ -109,16 +163,19 @@ Descriptor:         Handle         70 UUID(0x2803)
 Descriptor:         Handle         71 UUID(0x2a4a)
 Descriptor:         Handle         72 UUID(0x2803)
 Descriptor:         Handle         73 UUID(0x2a4c)
+
 Descriptor:         Handle         96 UUID(0x2800)
 Descriptor:         Handle         97 UUID(0x2803)
 Descriptor:         Handle         98 UUID(0xae41)
 Descriptor:         Handle         99 UUID(0x2803)
 Descriptor:         Handle        100 UUID(0xae42)
 Descriptor:         Handle        101 UUID(0x2902)
+
 Descriptor:         Handle        112 UUID(0x2800)
 Descriptor:         Handle        113 UUID(0x2803)
 Descriptor:         Handle        114 UUID(0x6bf3)
 Descriptor:         Handle        115 UUID(0x2902)
+
 Descriptor:         Handle        128 UUID(0x2800)
 Descriptor:         Handle        129 UUID(0x2803)
 Descriptor:         Handle        130 UUID(0xae01)
@@ -126,4 +183,127 @@ Descriptor:         Handle        131 UUID(0x2803)
 Descriptor:         Handle        132 UUID(0xae02)
 Descriptor:         Handle        133 UUID(0x2902)
 
+gatttool
+--------
+handle: 0x0001, uuid: 00002800-0000-1000-8000-00805f9b34fb
+handle: 0x0002, uuid: 00002803-0000-1000-8000-00805f9b34fb
+handle: 0x0003, uuid: 00002a00-0000-1000-8000-00805f9b34fb
+handle: 0x0004, uuid: 00002803-0000-1000-8000-00805f9b34fb
+handle: 0x0005, uuid: 00002a01-0000-1000-8000-00805f9b34fb
+handle: 0x0006, uuid: 00002803-0000-1000-8000-00805f9b34fb
+handle: 0x0007, uuid: 00002a04-0000-1000-8000-00805f9b34fb
+handle: 0x0008, uuid: 00002800-0000-1000-8000-00805f9b34fb
+handle: 0x0009, uuid: 00002803-0000-1000-8000-00805f9b34fb
+handle: 0x000a, uuid: 00002a05-0000-1000-8000-00805f9b34fb
+handle: 0x000b, uuid: 00002902-0000-1000-8000-00805f9b34fb
+handle: 0x000c, uuid: 00002800-0000-1000-8000-00805f9b34fb
+handle: 0x000d, uuid: 00002803-0000-1000-8000-00805f9b34fb
+handle: 0x000e, uuid: 00002a29-0000-1000-8000-00805f9b34fb
+handle: 0x000f, uuid: 00002803-0000-1000-8000-00805f9b34fb
+handle: 0x0010, uuid: 00002a24-0000-1000-8000-00805f9b34fb
+handle: 0x0011, uuid: 00002803-0000-1000-8000-00805f9b34fb
+handle: 0x0012, uuid: 00002a25-0000-1000-8000-00805f9b34fb
+handle: 0x0013, uuid: 00002803-0000-1000-8000-00805f9b34fb
+handle: 0x0014, uuid: 00002a27-0000-1000-8000-00805f9b34fb
+handle: 0x0015, uuid: 00002803-0000-1000-8000-00805f9b34fb
+handle: 0x0016, uuid: 00002a26-0000-1000-8000-00805f9b34fb
+handle: 0x0017, uuid: 00002803-0000-1000-8000-00805f9b34fb
+handle: 0x0018, uuid: 00002a28-0000-1000-8000-00805f9b34fb
+handle: 0x0019, uuid: 00002803-0000-1000-8000-00805f9b34fb
+handle: 0x001a, uuid: 00002a23-0000-1000-8000-00805f9b34fb
+handle: 0x001b, uuid: 00002803-0000-1000-8000-00805f9b34fb
+handle: 0x001c, uuid: 00002a2a-0000-1000-8000-00805f9b34fb
+handle: 0x001f, uuid: 00002800-0000-1000-8000-00805f9b34fb
+handle: 0x0020, uuid: 00002803-0000-1000-8000-00805f9b34fb
+handle: 0x0021, uuid: 00002a19-0000-1000-8000-00805f9b34fb
+handle: 0x0022, uuid: 00002902-0000-1000-8000-00805f9b34fb
+handle: 0x0023, uuid: 00002800-0000-1000-8000-00805f9b34fb
+handle: 0x0024, uuid: 00002803-0000-1000-8000-00805f9b34fb
+handle: 0x0025, uuid: 00002a4e-0000-1000-8000-00805f9b34fb
+handle: 0x0026, uuid: 00002803-0000-1000-8000-00805f9b34fb
+handle: 0x0027, uuid: 00002a4d-0000-1000-8000-00805f9b34fb
+handle: 0x0028, uuid: 00002902-0000-1000-8000-00805f9b34fb
+handle: 0x0029, uuid: 00002908-0000-1000-8000-00805f9b34fb
+handle: 0x002a, uuid: 00002803-0000-1000-8000-00805f9b34fb
+handle: 0x002b, uuid: 00002a4d-0000-1000-8000-00805f9b34fb
+handle: 0x002c, uuid: 00002902-0000-1000-8000-00805f9b34fb
+handle: 0x002d, uuid: 00002908-0000-1000-8000-00805f9b34fb
+handle: 0x002e, uuid: 00002803-0000-1000-8000-00805f9b34fb
+handle: 0x002f, uuid: 00002a4d-0000-1000-8000-00805f9b34fb
+handle: 0x0030, uuid: 00002908-0000-1000-8000-00805f9b34fb
+handle: 0x0031, uuid: 00002803-0000-1000-8000-00805f9b34fb
+handle: 0x0032, uuid: 00002a4d-0000-1000-8000-00805f9b34fb
+handle: 0x0033, uuid: 00002902-0000-1000-8000-00805f9b34fb
+handle: 0x0034, uuid: 00002908-0000-1000-8000-00805f9b34fb
+handle: 0x0035, uuid: 00002803-0000-1000-8000-00805f9b34fb
+handle: 0x0036, uuid: 00002a4d-0000-1000-8000-00805f9b34fb
+handle: 0x0037, uuid: 00002902-0000-1000-8000-00805f9b34fb
+handle: 0x0038, uuid: 00002908-0000-1000-8000-00805f9b34fb
+handle: 0x0039, uuid: 00002803-0000-1000-8000-00805f9b34fb
+handle: 0x003a, uuid: 00002a4d-0000-1000-8000-00805f9b34fb
+handle: 0x003b, uuid: 00002902-0000-1000-8000-00805f9b34fb
+handle: 0x003c, uuid: 00002908-0000-1000-8000-00805f9b34fb
+handle: 0x003d, uuid: 00002803-0000-1000-8000-00805f9b34fb
+handle: 0x003e, uuid: 00002a4d-0000-1000-8000-00805f9b34fb
+handle: 0x003f, uuid: 00002902-0000-1000-8000-00805f9b34fb
+handle: 0x0040, uuid: 00002908-0000-1000-8000-00805f9b34fb
+handle: 0x0041, uuid: 00002803-0000-1000-8000-00805f9b34fb
+handle: 0x0042, uuid: 00002a4b-0000-1000-8000-00805f9b34fb
+handle: 0x0043, uuid: 00002803-0000-1000-8000-00805f9b34fb
+handle: 0x0044, uuid: 00002a33-0000-1000-8000-00805f9b34fb
+handle: 0x0045, uuid: 00002902-0000-1000-8000-00805f9b34fb
+handle: 0x0046, uuid: 00002803-0000-1000-8000-00805f9b34fb
+handle: 0x0047, uuid: 00002a4a-0000-1000-8000-00805f9b34fb
+handle: 0x0048, uuid: 00002803-0000-1000-8000-00805f9b34fb
+handle: 0x0049, uuid: 00002a4c-0000-1000-8000-00805f9b34fb
 
+handle: 0x0060, uuid: 00002800-0000-1000-8000-00805f9b34fb
+handle: 0x0061, uuid: 00002803-0000-1000-8000-00805f9b34fb
+handle: 0x0062, uuid: 0000ae41-0000-1000-8000-00805f9b34fb
+handle: 0x0063, uuid: 00002803-0000-1000-8000-00805f9b34fb
+handle: 0x0064, uuid: 0000ae42-0000-1000-8000-00805f9b34fb
+handle: 0x0065, uuid: 00002902-0000-1000-8000-00805f9b34fb
+handle: 0x0070, uuid: 00002800-0000-1000-8000-00805f9b34fb
+
+handle: 0x0071, uuid: 00002803-0000-1000-8000-00805f9b34fb
+handle: 0x0072, uuid: 00006bf3-0000-1000-8000-00805f9b34fb
+handle: 0x0073, uuid: 00002902-0000-1000-8000-00805f9b34fb
+
+handle: 0x0080, uuid: 00002800-0000-1000-8000-00805f9b34fb
+handle: 0x0081, uuid: 00002803-0000-1000-8000-00805f9b34fb
+handle: 0x0082, uuid: 0000ae01-0000-1000-8000-00805f9b34fb
+handle: 0x0083, uuid: 00002803-0000-1000-8000-00805f9b34fb
+handle: 0x0084, uuid: 0000ae02-0000-1000-8000-00805f9b34fb
+handle: 0x0085, uuid: 00002902-0000-1000-8000-00805f9b34fb
+
+
+
+1  : 00 18                                 1  Service 1800
+2  : 02 03 00 00 2a                        2  UUID 2a00 Value handle 3 
+3  : 46 6f 6f 74 43 74 72 6c               3  Value FootCtrl
+4  : 02 05 00 01 2a                        4  
+5  : c0 03 
+6  : 02 07 00 04 2a 
+7  : 06 00 09 00 00 00 64 00 
+8  : 01 18 
+9  : 20 0a 00 05 2a 
+10 : 62 6c 65 20 64 65 76 69 63 65 
+11 : 02 12 00 25 2a 
+12 : 30 30 30 30 30 30 
+13 : 02 14 00 27 2a 
+14 : 30 2e 30 2e 31 
+15 : 02 16 00 26 2a 
+16 : 30 2e 30 2e 31 
+17 : 02 18 00 28 2a 
+18 : 30 2e 30 2e 31 
+19 : 02 1a 00 23 2a 
+20 : 12 21 00 19 2a
+21 : 14
+22 : 01 00 
+23 : 12 18
+24 : 06 25 00 4e 2a
+25 : 01
+26 : 1a 27 00 4d 2a
+27 : 
+28 : 01 00
+```
